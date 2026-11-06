@@ -1,0 +1,13 @@
+# Bundled local skill source - intentionally never part of this portfolio repository
+/unslop/
+
+# Dependencies and generated application output
+/node_modules/
+/.next/
+/out/
+/dist/
+
+# Local configuration and temporary working files
+.env*
+!.env.example
+/tmp/
