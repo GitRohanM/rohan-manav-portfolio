@@ -391,6 +391,10 @@ button {
   gap: 32px;
 }
 
+/* ==========================================================================
+   Step 4: Interactivity & Polish
+   Smooth lift transforms and colored glowing drop-shadows
+   ========================================================================== */
 .project-card {
   position: relative;
   display: flex;
@@ -399,6 +403,19 @@ button {
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+/* Tactile lift with high-contrast electric cyan glow on hover */
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 229, 255, 0.45);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.75),
+              0 0 24px rgba(0, 229, 255, 0.18);
 }
 
 /* Locked 16:9 Aspect Ratio Media Placeholder */
@@ -420,6 +437,11 @@ button {
   border: 1px dashed rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+.project-card:hover .media-placeholder-wireframe {
+  border-color: rgba(0, 229, 255, 0.35);
 }
 
 .media-placeholder-badge {
@@ -437,6 +459,12 @@ button {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-secondary);
+  transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover .media-placeholder-badge {
+  border-color: rgba(0, 229, 255, 0.3);
+  color: var(--text-bright);
 }
 
 .media-placeholder-badge svg {
@@ -481,7 +509,7 @@ button {
   flex-grow: 1;
 }
 
-/* Color-Coded Technology Pills */
+/* Color-Coded Technology Pills with Interactive States */
 .tech-pill-list {
   display: flex;
   flex-wrap: wrap;
@@ -499,6 +527,11 @@ button {
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.tech-pill:hover {
+  transform: translateY(-1px);
 }
 
 /* Unity in dark grey */
@@ -508,6 +541,11 @@ button {
   border: 1px solid #3E424E;
 }
 
+.tech-pill-unity:hover {
+  border-color: #555A6A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 /* C# in deep purple */
 .tech-pill-csharp {
   background: #4A1D6D;
@@ -515,11 +553,21 @@ button {
   border: 1px solid #6E2B9E;
 }
 
+.tech-pill-csharp:hover {
+  border-color: #9333EA;
+  box-shadow: 0 0 12px rgba(123, 44, 191, 0.35);
+}
+
 /* Secondary / Engine tech */
 .tech-pill-secondary {
   background: #141722;
   color: #38BDF8;
   border: 1px solid #1E293B;
+}
+
+.tech-pill-secondary:hover {
+  border-color: #38BDF8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
 }
 
 /* Card Action Links */
@@ -540,10 +588,12 @@ button {
   align-items: center;
   gap: 6px;
   color: var(--accent-cyan);
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .card-link-play:hover {
   color: #2DF1FF;
+  transform: translateX(2px);
 }
 
 .card-link-secondary {
@@ -551,10 +601,12 @@ button {
   align-items: center;
   gap: 6px;
   color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .card-link-secondary:hover {
   color: var(--text-bright);
+  transform: translateX(2px);
 }
 
 .card-link-icon {
