@@ -22,6 +22,7 @@ const links = {
 
 const projects = [
   {
+    slug: "rocket-glide",
     title: "Rocket Glide",
     type: "3D physics flight game",
     stack: "Unity 6 / C# / URP",
@@ -37,6 +38,7 @@ const projects = [
     accent: "cobalt",
   },
   {
+    slug: "royal-rush",
     title: "Royal Rush",
     type: "3D endless runner",
     stack: "Unity / C# / WebGL",
@@ -52,6 +54,7 @@ const projects = [
     accent: "ember",
   },
   {
+    slug: "2d-galaxy-shooter",
     title: "2D Galaxy Shooter",
     type: "2D arcade shooter",
     stack: "Unity / C# / 2D Physics",
@@ -190,6 +193,7 @@ export default function Home() {
                   {project.details.map((detail) => <li key={detail}>{detail}</li>)}
                 </ul>
                 <div className="text-links">
+                  <Link href={`/projects/${project.slug}`}>Read case study <ArrowUpRight aria-hidden="true" /></Link>
                   {project.github && <ExternalLink href={project.github}>GitHub</ExternalLink>}
                   <ExternalLink href={project.play}>Play build</ExternalLink>
                 </div>
