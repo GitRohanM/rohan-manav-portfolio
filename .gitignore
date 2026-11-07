@@ -6,6 +6,7 @@
 /.next/
 /out/
 /dist/
+*.tsbuildinfo
 
 # Local configuration and temporary working files
 .env*
