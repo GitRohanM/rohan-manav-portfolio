@@ -1,4 +1,15 @@
-import { ArrowDown, ArrowUpRight, Code2, Download, ExternalLink, Gamepad2, Link2, Mail, Play } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Code2,
+  Download,
+  ExternalLink,
+  Gamepad2,
+  Link2,
+  Mail,
+  Play,
+  Video,
+} from "lucide-react";
 import Link from "next/link";
 import PortfolioTerminal from "../components/PortfolioTerminal";
 
@@ -9,45 +20,88 @@ const links = {
   email: "mailto:inbox.rohanm@gmail.com",
 };
 
-const projects = [
+interface TechTag {
+  name: string;
+  type: "unity" | "csharp" | "secondary";
+}
+
+interface Project {
+  slug: string;
+  title: string;
+  description: string;
+  tags: TechTag[];
+  github?: string;
+  play: string;
+}
+
+const projects: Project[] = [
   {
-    slug: "cloudstep",
-    title: "Cloudstep",
+    slug: "apex-canyon",
+    title: "Apex Canyon",
     description:
-      "A 3D precision platformer built around responsive movement, readable obstacles, and polished level flow.",
-    tags: ["Unity 6", "C#", "URP", "Platformer"],
-    github: "https://github.com/GitRohanM/CloudStep-3D",
-    play: "https://inboxrohanm.itch.io/cloudstep",
-    art: "cloudstep-art",
-  },
-  {
-    slug: "rocket-glide",
-    title: "Rocket Glide",
-    description:
-      "A physics flight game with dynamic obstacles, landing checks, missions, and a custom HUD state flow.",
-    tags: ["Unity", "C#", "Physics", "WebGL"],
-    github: "https://github.com/GitRohanM/Rocket-Boost",
-    play: "https://inboxrohanm.itch.io/rocket-glide",
-    art: "rocket-art",
+      "High-speed canyon racer built with responsive vehicle drift physics, dynamic camera shakes, and procedural canyon terrain.",
+    tags: [
+      { name: "Unity 6", type: "unity" },
+      { name: "C#", type: "csharp" },
+      { name: "Vehicle Physics", type: "secondary" },
+      { name: "URP", type: "secondary" },
+    ],
+    github: "https://github.com/GitRohanM",
+    play: "https://inboxrohanm.itch.io/",
   },
   {
     slug: "royal-rush",
     title: "Royal Rush",
     description:
-      "A lane-based 3D endless runner with recycled tracks, adaptive difficulty, and Cinemachine feedback.",
-    tags: ["Unity", "C#", "Runner", "Cinemachine"],
+      "A lane-based 3D endless runner with continuous track recycling, adaptive difficulty scaling, and Cinemachine camera feedback.",
+    tags: [
+      { name: "Unity", type: "unity" },
+      { name: "C#", type: "csharp" },
+      { name: "Cinemachine", type: "secondary" },
+      { name: "New Input System", type: "secondary" },
+    ],
     github: "https://github.com/GitRohanM/Royal-Rush",
     play: "https://inboxrohanm.itch.io/royal-rush",
-    art: "royal-art",
   },
   {
-    slug: "2d-galaxy-shooter",
-    title: "2D Galaxy Shooter",
+    slug: "rocket-glide",
+    title: "Rocket Glide",
     description:
-      "A responsive arcade shooter with reusable object pools, player state, power-ups, and wave systems.",
-    tags: ["Unity", "C#", "2D", "Object pools"],
+      "A precision flight game with physics-based rocket thrust, dynamic obstacles, landing checks, and structured rank scoring.",
+    tags: [
+      { name: "Unity 6", type: "unity" },
+      { name: "C#", type: "csharp" },
+      { name: "Physics", type: "secondary" },
+      { name: "WebGL", type: "secondary" },
+    ],
+    github: "https://github.com/GitRohanM/Rocket-Boost",
+    play: "https://inboxrohanm.itch.io/rocket-glide",
+  },
+  {
+    slug: "cube-run",
+    title: "Cube Run",
+    description:
+      "A fast-paced minimalist obstacle runner built on tight collision physics, smooth input response, and progressive difficulty curves.",
+    tags: [
+      { name: "Unity", type: "unity" },
+      { name: "C#", type: "csharp" },
+      { name: "Physics", type: "secondary" },
+      { name: "Game Systems", type: "secondary" },
+    ],
+    play: "https://inboxrohanm.itch.io/",
+  },
+  {
+    slug: "galaxy-shooter",
+    title: "Galaxy Shooter",
+    description:
+      "A responsive arcade space shooter featuring reusable object pools, invulnerability state machines, and modular power-up systems.",
+    tags: [
+      { name: "Unity", type: "unity" },
+      { name: "C#", type: "csharp" },
+      { name: "2D", type: "secondary" },
+      { name: "Object Pooling", type: "secondary" },
+    ],
     play: "https://inboxrohanm.itch.io/2d-galaxy-shooter",
-    art: "galaxy-art",
   },
 ];
 
@@ -60,7 +114,7 @@ function OutboundLink({
 }) {
   return (
     <a href={href} target="_blank" rel="noreferrer">
-      {children} <ArrowUpRight aria-hidden="true" />
+      {children} <ArrowUpRight className="card-link-icon" aria-hidden="true" />
     </a>
   );
 }
@@ -76,7 +130,8 @@ export default function Home() {
             <strong>Rohan Manav</strong>
           </a>
           <nav className="site-nav" aria-label="Primary navigation">
-            <a href="#projects">Projects</a>
+            <a href="#projects">Featured Work</a>
+            <a href="#lab">Laboratory</a>
             <a href="#terminal">Terminal</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
@@ -95,7 +150,8 @@ export default function Home() {
           <h1 className="hero-name">Rohan Manav</h1>
           <p className="hero-role">Unity Game Developer</p>
           <p className="hero-tagline">
-            Building responsive controls, readable feedback, and robust game systems in Unity and C#.
+            Building responsive controls, readable feedback, and robust game
+            systems in Unity and C#.
           </p>
 
           <div className="hero-actions">
@@ -111,47 +167,101 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Retained Sections for Step 3 and beyond */}
+      {/* Step 3: Featured Work with 16:9 Media Placeholders */}
       <section
-        className="intro-section site-frame"
+        className="featured-section site-frame"
         id="projects"
         aria-labelledby="projects-title"
       >
-        <h2 id="projects-title" style={{ marginTop: "64px" }}>
-          Featured Work
-        </h2>
-        <p className="section-lede">
-          A selection of playable Unity projects focused on responsive
-          controls, readable feedback, and game systems built with care.
-        </p>
+        <div className="section-header">
+          <div className="section-kicker">
+            <span>[ 01 // FEATURED WORK ]</span>
+          </div>
+          <h2 className="section-title" id="projects-title">
+            Playable Systems &amp; Games
+          </h2>
+          <p className="section-lede">
+            A selection of Unity game projects built around responsive player
+            controls, deterministic physics, and robust C# gameplay architecture.
+          </p>
+        </div>
+
         <div className="project-grid">
           {projects.map((project) => (
             <article className="project-card" key={project.slug}>
-              <div className={`project-art ${project.art}`}>
-                <span className="engine-badge">Unity</span>
-                <span className="art-title">{project.title}</span>
-                <div className="art-shapes" aria-hidden="true">
-                  <i />
-                  <i />
-                  <i />
+              {/* Locked 16:9 Aspect Ratio Media Container */}
+              <div
+                className="media-placeholder-container"
+                aria-label={`${project.title} gameplay preview`}
+              >
+                <div
+                  className="media-placeholder-wireframe"
+                  aria-hidden="true"
+                />
+                <div className="media-placeholder-badge">
+                  <Video aria-hidden="true" />
+                  <span>Video/GIF Placeholder (16:9)</span>
                 </div>
               </div>
-              <div className="project-copy">
-                <h2>{project.title}</h2>
-                <p>{project.description}</p>
-                <div className="tag-row">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+
+              {/* Project Card Information */}
+              <div className="project-card-body">
+                <h3 className="project-card-title">{project.title}</h3>
+                <p className="project-card-desc">{project.description}</p>
+
+                {/* Color-coded Technology Pills */}
+                <div
+                  className="tech-pill-list"
+                  aria-label={`${project.title} technologies`}
+                >
+                  {project.tags.map((tag) => {
+                    const tagClass =
+                      tag.type === "unity"
+                        ? "tech-pill-unity"
+                        : tag.type === "csharp"
+                        ? "tech-pill-csharp"
+                        : "tech-pill-secondary";
+
+                    return (
+                      <span className={`tech-pill ${tagClass}`} key={tag.name}>
+                        {tag.name}
+                      </span>
+                    );
+                  })}
                 </div>
+
+                {/* Card Action Links */}
                 <div className="card-links">
-                  <Link href={`/projects/${project.slug}`}>
-                    Case study <ArrowUpRight aria-hidden="true" />
-                  </Link>
+                  <a
+                    className="card-link-play"
+                    href={project.play}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Play className="card-link-icon" aria-hidden="true" />
+                    <span>Play Build</span>
+                  </a>
                   {project.github && (
-                    <OutboundLink href={project.github}>Code</OutboundLink>
+                    <a
+                      className="card-link-secondary"
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Code2 className="card-link-icon" aria-hidden="true" />
+                      <span>Code</span>
+                    </a>
                   )}
-                  <OutboundLink href={project.play}>Play</OutboundLink>
+                  <Link
+                    className="card-link-secondary"
+                    href={`/projects/${project.slug}`}
+                  >
+                    <span>System Details</span>
+                    <ArrowUpRight
+                      className="card-link-icon"
+                      aria-hidden="true"
+                    />
+                  </Link>
                 </div>
               </div>
             </article>
@@ -159,6 +269,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Laboratory Section */}
       <section
         className="lab-section site-frame"
         id="lab"
@@ -172,8 +283,8 @@ export default function Home() {
               projects.
             </p>
           </div>
-          <a href="#terminal">
-            Open terminal <ArrowDown aria-hidden="true" />
+          <a href="#terminal" style={{ color: "var(--accent-cyan)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <span>Open terminal</span> <ArrowDown className="card-link-icon" aria-hidden="true" />
           </a>
         </div>
         <div className="lab-grid">
@@ -204,50 +315,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Playable Build Spotlight */}
       <section className="play-section" aria-labelledby="play-title">
         <div className="site-frame">
-          <h2 id="play-title">Explore a playable build</h2>
-          <p>
-            Cloudstep is available in the browser—move through three levels
-            built around precise, responsive platforming.
+          <h2 id="play-title">Explore a Playable Build</h2>
+          <p style={{ color: "var(--text-secondary)", marginBottom: "32px" }}>
+            Rocket Glide is available right in your browser—experience responsive
+            physics controls and landing mechanics.
           </p>
           <div className="play-panel">
-            <div className="play-grid" aria-hidden="true">
-              <i />
-              <i />
-              <i />
-              <i />
-              <i />
-            </div>
             <div className="play-copy">
               <Gamepad2 aria-hidden="true" />
-              <span>Cloudstep</span>
-              <strong>Playable Unity build</strong>
-              <OutboundLink href="https://inboxrohanm.itch.io/cloudstep">
-                <Play aria-hidden="true" /> Play in browser
+              <span>Rocket Glide</span>
+              <strong>Playable Unity Build</strong>
+              <OutboundLink href="https://inboxrohanm.itch.io/rocket-glide">
+                <Play className="card-link-icon" aria-hidden="true" /> Play in browser
               </OutboundLink>
             </div>
-            <span className="play-meta">Unity 6 / WebGL</span>
           </div>
         </div>
       </section>
 
+      {/* Terminal Section */}
       <section
         className="terminal-section site-frame"
         id="terminal"
         aria-labelledby="terminal-title"
       >
         <h2 id="terminal-title">Interactive Terminal</h2>
-        <p>
+        <p style={{ color: "var(--text-secondary)", marginBottom: "24px" }}>
           Explore the portfolio the developer way. Type <code>help</code> to get
           started.
         </p>
         <PortfolioTerminal />
-        <span className="terminal-tip">
-          Try <code>projects</code>, <code>skills</code>, or <code>contact</code>
-        </span>
       </section>
 
+      {/* About Section */}
       <section
         className="about-section site-frame"
         id="about"
@@ -275,6 +378,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Education & Experience */}
       <section
         className="experience-section site-frame"
         id="experience"
@@ -300,35 +404,41 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="contact-section" id="contact" aria-labelledby="contact-title">
-        <div className="site-frame">
+      {/* Contact Section */}
+      <section
+        className="contact-section"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div className="site-frame" style={{ textAlign: "center" }}>
           <h2 id="contact-title">Let&apos;s Connect</h2>
-          <p>
+          <p style={{ color: "var(--text-secondary)", marginBottom: "32px", maxWidth: "600px", marginInline: "auto" }}>
             I&apos;m open to game-development opportunities and conversations
-            about building thoughtful interactive work.
+            about building thoughtful interactive systems.
           </p>
           <div className="social-links">
             <OutboundLink href={links.linkedin}>
-              <Link2 aria-hidden="true" /> LinkedIn
+              <Link2 className="card-link-icon" aria-hidden="true" /> LinkedIn
             </OutboundLink>
             <OutboundLink href={links.github}>
-              <Code2 aria-hidden="true" /> GitHub
+              <Code2 className="card-link-icon" aria-hidden="true" /> GitHub
             </OutboundLink>
             <OutboundLink href={links.itch}>
-              <ExternalLink aria-hidden="true" /> itch.io
+              <ExternalLink className="card-link-icon" aria-hidden="true" /> itch.io
             </OutboundLink>
           </div>
           <a className="primary-button" href={links.email}>
-            <Mail aria-hidden="true" /> Email Rohan
+            <Mail className="card-link-icon" aria-hidden="true" /> Email Rohan
           </a>
         </div>
       </section>
 
+      {/* Footer */}
       <footer>
         <div className="site-frame">
-          <span>© 2026 Rohan Manav</span>
-          <a href="#top">
-            Back to top <ArrowUpRight aria-hidden="true" />
+          <span>© 2026 Rohan Manav — Unity Game Developer</span>
+          <a href="#top" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            Back to top <ArrowUpRight className="card-link-icon" aria-hidden="true" />
           </a>
         </div>
       </footer>

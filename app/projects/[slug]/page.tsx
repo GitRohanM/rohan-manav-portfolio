@@ -3,6 +3,29 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Box, Gauge, Gamepad2, Layers3, Play, Wrench } from "lucide-react";
 
 const projects = {
+  "apex-canyon": {
+    index: "01",
+    title: "Apex Canyon",
+    label: "3D canyon vehicle racer",
+    summary: "A Unity 6 high-speed vehicle racer featuring responsive arcade drift physics, dynamic camera shakes, and procedural canyon terrain.",
+    visualLabel: "Racing loop / active",
+    stages: ["Track generated", "Drift calculated", "Pace verified"],
+    facts: [["Engine", "Unity 6"], ["Render pipeline", "URP"], ["Core language", "C#"], ["Physics", "Custom Rigidbody Drift"]],
+    intent: "High-speed arcade racing requires instant weight response and clear road readability",
+    paragraphs: [
+      "Apex Canyon focuses on vehicle handling in narrow canyon geometry where player response and drift balance are critical.",
+      "The track layout and obstacle curves test suspension dynamics, terrain raycasts, and custom camera shake tailored to speed milestones.",
+    ],
+    notes: [
+      [Gamepad2, "Drift physics", "Custom vehicle controller with arcade drift dynamics, suspension simulation, and surface friction."],
+      [Layers3, "Procedural terrain", "Modular canyon sections and dynamic obstacle hazards ensure unpredictable track flow."],
+      [Gauge, "Performance & batching", "Optimized URP materials, GPU instancing, and minimal allocation loops maintain high FPS."],
+      [Box, "Target release", "Engineered for smooth WebGL browser play and standalone desktop builds."],
+    ],
+    delivery: [["Playable release", "WebGL playable build hosted on itch.io"], ["Physics tuning", "Custom C# drift and stabilization models"]],
+    github: "https://github.com/GitRohanM",
+    play: "https://inboxrohanm.itch.io/",
+  },
   "rocket-glide": {
     index: "02",
     title: "Rocket Glide",
@@ -70,6 +93,28 @@ const projects = {
     ],
     delivery: [["Playable release", "A browser-accessible build is available through itch.io"], ["Runtime focus", "Reusable pools support projectile and enemy waves during active play"]],
     play: "https://inboxrohanm.itch.io/2d-galaxy-shooter",
+  },
+  "cube-run": {
+    index: "05",
+    title: "Cube Run",
+    label: "Minimalist precision runner",
+    summary: "A fast-paced minimalist obstacle runner built on tight collision physics, smooth input response, and progressive difficulty curves.",
+    visualLabel: "Runner loop / active",
+    stages: ["Input polled", "Collision checked", "Score incremented"],
+    facts: [["Engine", "Unity"], ["Core language", "C#"], ["Physics", "Continuous Collision"], ["Platform", "WebGL / PC"]],
+    intent: "Clean geometry highlights pure reaction time and instant feedback",
+    paragraphs: [
+      "Cube Run strips away excess decoration to focus on pure collision accuracy, instant retry flow, and rhythmic obstacle placement.",
+      "Object pooling and low garbage collection overhead ensure zero frame drops during high-speed runs.",
+    ],
+    notes: [
+      [Gamepad2, "Tight controls", "Instantaneous input sampling with zero-latency jump and dodge mechanics."],
+      [Box, "Object pooling", "Recycled obstacle waves to prevent GC stutter during intense gameplay."],
+      [Gauge, "Dynamic pacing", "Difficulty ramping tied to player survival time and score milestones."],
+      [Wrench, "Audio-visual feedback", "High-contrast visual cues and reactive audio on near-miss events."],
+    ],
+    delivery: [["Playable build", "Instant browser play via WebGL"], ["System focus", "Lightweight, zero-allocation core runner loop"]],
+    play: "https://inboxrohanm.itch.io/",
   },
 } as const;
 
