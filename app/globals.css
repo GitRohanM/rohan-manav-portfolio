@@ -395,6 +395,72 @@ button {
    Step 4: Interactivity & Polish
    Smooth lift transforms and colored glowing drop-shadows
    ========================================================================== */
+/* ==========================================================================
+   3D Mouse-Tracking Cards (CSS 3D / Tilt & Parallax Depth)
+   ========================================================================== */
+.tilt-card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.tilt-card-wrapper:hover {
+  border-color: rgba(0, 229, 255, 0.5);
+}
+
+.tilt-card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+
+/* Dynamic Inner Glare Overlay */
+.tilt-card-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 14px;
+  mix-blend-mode: overlay;
+}
+
+/* 3D Z-Depth Parallax: Internal elements physically pop out towards the viewer */
+.tilt-card-wrapper .media-placeholder-container {
+  transform: translateZ(26px);
+  transform-style: preserve-3d;
+}
+
+.tilt-card-wrapper .media-placeholder-badge {
+  transform: translateZ(16px);
+}
+
+.tilt-card-wrapper .project-card-title {
+  transform: translateZ(22px);
+}
+
+.tilt-card-wrapper .project-card-desc {
+  transform: translateZ(14px);
+}
+
+.tilt-card-wrapper .tech-pill-list {
+  transform: translateZ(24px);
+}
+
+.tilt-card-wrapper .card-links {
+  transform: translateZ(18px);
+}
+
 .project-card {
   position: relative;
   display: flex;
@@ -403,11 +469,6 @@ button {
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
-              border-color 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: transform, box-shadow;
 }
 
 /* Tactile lift with high-contrast electric cyan glow on hover */

@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import PortfolioTerminal from "../components/PortfolioTerminal";
+import TiltCard from "../components/TiltCard";
 
 const links = {
   github: "https://github.com/GitRohanM",
@@ -188,7 +189,7 @@ export default function Home() {
 
         <div className="project-grid">
           {projects.map((project) => (
-            <article className="project-card" key={project.slug}>
+            <TiltCard key={project.slug}>
               {/* Locked 16:9 Aspect Ratio Media Container */}
               <div
                 className="media-placeholder-container"
@@ -264,7 +265,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </article>
+            </TiltCard>
           ))}
         </div>
       </section>
