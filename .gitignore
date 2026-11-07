@@ -1,5 +1,7 @@
 # Bundled local skill source - intentionally never part of this portfolio repository
 /unslop/
+/.agents/
+/.claude/
 
 # Dependencies and generated application output
 /node_modules/
