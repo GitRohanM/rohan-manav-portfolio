@@ -57,7 +57,7 @@ export function ServicesSection() {
   ];
 
   return (
-    <section id="skills" className="py-16 md:py-24 container mx-auto px-4 max-w-7xl">
+    <section id="skills" className="scroll-mt-28 md:scroll-mt-32 py-16 md:py-24 container mx-auto px-4 max-w-7xl">
       <div className="text-center mb-14 md:mb-18">
         <h2 className="text-3xl md:text-5xl font-black mb-4 text-black">
           My core{" "}

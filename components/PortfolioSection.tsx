@@ -87,7 +87,7 @@ export function PortfolioSection() {
   ];
 
   return (
-    <section id="projects" className="py-16 md:py-24 container mx-auto px-4 max-w-7xl">
+    <section id="projects" className="scroll-mt-28 md:scroll-mt-32 py-16 md:py-24 container mx-auto px-4 max-w-7xl">
       <div className="text-center mb-14 md:mb-20">
         <h2 className="text-3xl md:text-5xl font-black mb-4 text-black">
           Take a look at my <br />

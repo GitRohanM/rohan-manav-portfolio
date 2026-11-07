@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-black text-white py-16 md:py-20 mt-20">
+    <footer id="contact" className="scroll-mt-28 md:scroll-mt-32 bg-black text-white py-16 md:py-20 mt-20">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Top Connect Neo-Brutalist Box */}
         <div className="bg-white text-black border-4 border-black rounded-[36px] p-8 md:p-12 shadow-[10px_10px_0px_0px_#FFC224] mb-16">

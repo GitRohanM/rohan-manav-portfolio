@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function PlayableSpotlight() {
   return (
-    <section id="playable" className="py-16 md:py-24 container mx-auto px-4 max-w-7xl">
+    <section id="playable" className="scroll-mt-28 md:scroll-mt-32 py-16 md:py-24 container mx-auto px-4 max-w-7xl">
       <div className="bg-[#FFC224] border-4 border-black rounded-[36px] p-8 md:p-14 shadow-[10px_10px_0px_0px_#000000] relative overflow-hidden">
         {/* Background retro dots */}
         <div
