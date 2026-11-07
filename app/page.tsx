@@ -11,6 +11,7 @@ import {
   Sparkles,
   Wrench,
 } from "lucide-react";
+import Link from "next/link";
 
 const links = {
   github: "https://github.com/GitRohanM",
@@ -160,6 +161,7 @@ export default function Home() {
                 <li><Wrench aria-hidden="true" /> Custom Unity Editor scripts for repeatable setup</li>
               </ul>
               <div className="text-links">
+                <Link href="/projects/cloudstep">Read case study <ArrowUpRight aria-hidden="true" /></Link>
                 <ExternalLink href="https://github.com/GitRohanM/CloudStep-3D">GitHub</ExternalLink>
                 <ExternalLink href="https://inboxrohanm.itch.io/cloudstep">Play in browser</ExternalLink>
               </div>
