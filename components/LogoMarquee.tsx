@@ -14,65 +14,81 @@ import {
 } from "lucide-react";
 
 export function LogoMarquee() {
-  const items = [
-    { name: "unity 6", icon: Gamepad2 },
-    { name: "c# systems", icon: Code2 },
-    { name: "vehicle physics", icon: Gauge },
-    { name: "urp shaders", icon: Sparkles },
-    { name: "state machines", icon: Layers },
-    { name: "object pooling", icon: Boxes },
-    { name: "webgl builds", icon: Flame },
-    { name: "custom tools", icon: Cpu },
-    { name: "cinemachine", icon: Video },
-    { name: "git & lfs", icon: GitBranch },
+  const skills = [
+    { name: "UNITY 6", icon: Gamepad2, color: "#FFC224" },
+    { name: "C# SCRIPTS", icon: Code2, color: "#FF6B7A" },
+    { name: "VEHICLE PHYSICS", icon: Gauge, color: "#2F81F7" },
+    { name: "URP SHADERS", icon: Sparkles, color: "#6366F1" },
+    { name: "STATE MACHINES", icon: Layers, color: "#10B981" },
+    { name: "OBJECT POOLING", icon: Boxes, color: "#FFC224" },
+    { name: "WEBGL BUILDS", icon: Flame, color: "#FF6B7A" },
+    { name: "CUSTOM TOOLS", icon: Cpu, color: "#2F81F7" },
+    { name: "CINEMACHINE", icon: Video, color: "#6366F1" },
+    { name: "GIT & LFS", icon: GitBranch, color: "#10B981" },
   ];
 
   return (
-    <div className="w-full overflow-hidden my-20 md:my-28 select-none">
+    <div className="w-full overflow-hidden py-28 md:py-36 select-none">
       {/* 
-        High-Impact Paperfolio Black Marquee Ribbon
-        - Matching reference: pure white monochrome logo lockups (white vector icon + bold lowercase typography)
-        - Height matching template: generous py-16 md:py-20 padding
-        - Exact template rotation: -rotate-[5deg]
-        - Symmetrical ultra-wide width (-ml-[50vw] w-[200vw]) to guarantee no edge clipping on any screen width
-        - Seamless loop with 2 identical tracks at 32s linear infinite
+        Uniform Straight-Edged Black Rectangle Ribbon
+        - Guaranteed 100% Straight Parallel Rectangle: 
+          Outer py-28 md:py-36 padding prevents overflow-hidden from clipping the tilted corners into kinks/polygons.
+        - Symmetrical ultra-wide width: min-w-[200vw] -ml-[50vw] w-[200vw] prevents any horizontal gaps on wide viewports.
+        - Exact Paperfolio rotation: -rotate-[5deg]
+        - Restored Rohan's rich game system badges (Unity 6, C#, Physics, Shaders, etc.) with clean typography.
       */}
-      <div className="relative bg-black text-white py-16 md:py-20 -rotate-[5deg] min-w-[200vw] -ml-[50vw] w-[200vw] flex items-center">
+      <div className="relative bg-black text-white py-10 md:py-12 -rotate-[5deg] min-w-[200vw] -ml-[50vw] w-[200vw] flex items-center">
         {/* Seamless Infinite Marquee Track */}
         <div className="animate-marquee flex items-center">
           {/* Track 1 */}
-          <div className="flex items-center gap-16 md:gap-24 shrink-0 pr-16 md:pr-24">
-            {items.map((item, idx) => {
+          <div className="flex items-center gap-12 md:gap-16 shrink-0 pr-12 md:pr-16">
+            {skills.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={`track1-${idx}`}
-                  className="flex items-center gap-3.5 md:gap-4 text-white opacity-95 hover:opacity-100 transition-opacity"
+                  className="flex items-center gap-4 text-white shrink-0"
                 >
-                  <Icon className="w-9 h-9 md:w-11 md:h-11 text-white stroke-[2.2] shrink-0" />
-                  <span className="text-3xl md:text-4xl font-extrabold tracking-tight text-white whitespace-nowrap lowercase">
+                  <div
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-2xl border-2 border-white flex items-center justify-center shadow-[3px_3px_0px_0px_#ffffff] shrink-0"
+                    style={{ backgroundColor: item.color }}
+                  >
+                    <Icon className="w-6 h-6 md:w-7 md:h-7 text-black stroke-[2.2]" />
+                  </div>
+                  <span className="text-2xl md:text-3xl font-black tracking-tight whitespace-nowrap uppercase text-white">
                     {item.name}
+                  </span>
+                  <span className="text-neutral-500 text-3xl font-black ml-8 select-none">
+                    •
                   </span>
                 </div>
               );
             })}
           </div>
 
-          {/* Track 2 (Identical duplicate for 100% seamless infinite loop) */}
+          {/* Track 2 (Identical duplicate for seamless continuous looping) */}
           <div
-            className="flex items-center gap-16 md:gap-24 shrink-0 pr-16 md:pr-24"
+            className="flex items-center gap-12 md:gap-16 shrink-0 pr-12 md:pr-16"
             aria-hidden="true"
           >
-            {items.map((item, idx) => {
+            {skills.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={`track2-${idx}`}
-                  className="flex items-center gap-3.5 md:gap-4 text-white opacity-95 hover:opacity-100 transition-opacity"
+                  className="flex items-center gap-4 text-white shrink-0"
                 >
-                  <Icon className="w-9 h-9 md:w-11 md:h-11 text-white stroke-[2.2] shrink-0" />
-                  <span className="text-3xl md:text-4xl font-extrabold tracking-tight text-white whitespace-nowrap lowercase">
+                  <div
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-2xl border-2 border-white flex items-center justify-center shadow-[3px_3px_0px_0px_#ffffff] shrink-0"
+                    style={{ backgroundColor: item.color }}
+                  >
+                    <Icon className="w-6 h-6 md:w-7 md:h-7 text-black stroke-[2.2]" />
+                  </div>
+                  <span className="text-2xl md:text-3xl font-black tracking-tight whitespace-nowrap uppercase text-white">
                     {item.name}
+                  </span>
+                  <span className="text-neutral-500 text-3xl font-black ml-8 select-none">
+                    •
                   </span>
                 </div>
               );
