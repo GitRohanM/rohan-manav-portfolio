@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-28 md:scroll-mt-32 container mx-auto px-4 py-16 md:py-28 max-w-7xl">
+    <section id="about" className="container mx-auto px-4 pt-24 md:pt-28 pb-16 md:pb-28 max-w-7xl">
       <div className="grid lg:grid-cols-12 gap-12 md:gap-16 items-center">
         {/* Left Avatar Graphic */}
         <div className="lg:col-span-5 flex justify-center">

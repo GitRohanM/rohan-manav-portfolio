@@ -5,7 +5,7 @@ import PortfolioTerminal from "./PortfolioTerminal";
 
 export function TerminalSection() {
   return (
-    <section id="terminal" className="scroll-mt-28 md:scroll-mt-32 py-16 md:py-24 container mx-auto px-4 max-w-7xl">
+    <section id="terminal" className="pt-24 md:pt-28 pb-16 md:pb-24 container mx-auto px-4 max-w-7xl">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-5xl font-black mb-4 text-black">
           Developer{" "}

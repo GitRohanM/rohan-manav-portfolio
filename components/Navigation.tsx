@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 
 export function Navigation() {
   return (
-    <div className="sticky top-6 z-50 container mx-auto px-4 py-2">
-      <nav className="flex items-center justify-between bg-white border-4 border-black rounded-2xl px-5 py-3 max-w-4xl mx-auto shadow-[6px_6px_0px_0px_#000000] transition-all">
+    <header className="sticky top-0 z-50 w-full py-3 bg-white/90 backdrop-blur-md">
+      <div className="container mx-auto px-4">
+        <nav className="flex items-center justify-between bg-white border-4 border-black rounded-2xl px-5 py-3 max-w-4xl mx-auto shadow-[6px_6px_0px_0px_#000000] transition-all">
         {/* Brand / Logo */}
         <a href="#top" className="flex items-center gap-3 group">
           <div className="w-10 h-10 bg-[#FFC224] border-2 border-black rounded-xl flex items-center justify-center font-black text-black shadow-[2px_2px_0px_0px_#000000] group-hover:-translate-y-0.5 transition-transform">
@@ -69,6 +70,7 @@ export function Navigation() {
           </a>
         </div>
       </nav>
-    </div>
+      </div>
+    </header>
   );
 }
