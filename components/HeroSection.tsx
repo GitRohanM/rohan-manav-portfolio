@@ -16,13 +16,13 @@ export function HeroSection() {
           </div>
 
           {/* Paperfolio Signature Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black leading-[1.12] text-black">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black leading-[1.4] text-black">
             I&apos;m{" "}
-            <span className="bg-[#FF6B7A] text-white px-3.5 py-1 inline-block rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_#000000] transform -rotate-1">
+            <span className="bg-[#FF6B7A] text-white px-3.5 py-1 inline-block rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_#000000] transform -rotate-1 mr-2 leading-none">
               Rohan Manav
             </span>
             , a Unity Game Developer from{" "}
-            <span className="bg-[#2F81F7] text-white px-3.5 py-1 inline-block rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_#000000] transform rotate-1">
+            <span className="bg-[#2F81F7] text-white px-3.5 py-1 inline-block rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_#000000] transform rotate-1 leading-none">
               India
             </span>
           </h1>
@@ -68,7 +68,7 @@ export function HeroSection() {
                 className="w-full sm:w-auto"
               >
                 <Download className="w-5 h-5" />
-                <span>Resume / GitHub</span>
+                <span>Resume</span>
               </Button>
             </a>
           </div>
